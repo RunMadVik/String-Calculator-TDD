@@ -27,7 +27,7 @@ class TestStringCalculator(unittest.TestCase):
         self.assertEqual(string_calculator(number_string="1\n2,3"), 6)
 
     def test_number_string_calculator_with_different_delimiter(self):
-        self.assertEqual(string_calculator(number_string="//;\n1;2"), 3)
+        self.assertEqual(string_calculator(number_string="//[;]\n1;2"), 3)
 
     def test_number_string_calculator_with_negative_numbers_should_raise_exception(
         self,

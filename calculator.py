@@ -1,6 +1,7 @@
 """
 This file contains all the calculators.
 """
+import re
 
 
 def string_calculator(number_string: str) -> int:
@@ -14,7 +15,8 @@ def string_calculator(number_string: str) -> int:
         # splitting on newline character since additional delimiters
         # will be given in format "//[delimiter]\n"
         values = stripped_string.split("\n")
-        extra_delimiters.extend(values[0])
+        delims = re.findall(r"\[(.*?)\]", values[0])
+        extra_delimiters.extend(delims)
         number_string = "\n".join(values[1:])
 
     for delim in extra_delimiters:
