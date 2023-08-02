@@ -29,6 +29,29 @@ class TestStringCalculator(unittest.TestCase):
     def test_number_string_calculator_with_different_delimiter(self):
         self.assertEqual(string_calculator(number_string="//;\n1;2"), 3)
 
+    def test_number_string_calculator_with_negative_numbers_should_raise_exception(
+        self,
+    ):
+        with self.assertRaises(Exception) as exception:
+            string_calculator(number_string="1,2,3,4,-5")
+
+        self.assertEqual(str(exception.exception), "Negative numbers not allowed. [-5]")
+
+    def test_number_string_calculator_with_multiple_negative_numbers_should_raise_exception(
+        self,
+    ):
+        negative_numbers = [-5, -6, -7]
+        with self.assertRaises(Exception) as exception:
+            string_calculator(
+                number_string="1,2,3,4,"
+                + ",".join([str(number) for number in negative_numbers])
+            )
+
+        self.assertEqual(
+            str(exception.exception),
+            f"Negative numbers not allowed. {negative_numbers}",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
