@@ -54,9 +54,12 @@ class TestStringCalculator(unittest.TestCase):
 
     def test_number_string_calculator_with_numbers_greater_than_1000(self):
         self.assertEqual(string_calculator(number_string="1,2,1001,1005"), 3)
-        
-    def test_number_string_calculator_with_arbitraty_length_delimiter(self):
+
+    def test_number_string_calculator_with_arbitrary_length_delimiter(self):
         self.assertEqual(string_calculator(number_string="//[***]\n1***2***3"), 6)
+
+    def test_number_string_calculator_with_multiple_delimiter(self):
+        self.assertEqual(string_calculator(number_string="//[*][%]\n1*2%3"), 6)
 
 
 if __name__ == "__main__":
