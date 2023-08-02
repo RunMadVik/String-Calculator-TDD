@@ -28,4 +28,4 @@ def string_calculator(number_string: str) -> int:
     if negative_numbers:
         raise Exception(f"Negative numbers not allowed. {negative_numbers}")
 
-    return sum(numbers_list)
+    return sum([number for number in numbers_list if number < 1000])
