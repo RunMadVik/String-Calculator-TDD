@@ -23,6 +23,6 @@ Just run the code using the following commands on the terminal
 2. To use the calculator
     ```python
     from calculator import string_calculator
-    add(your_string_here)
+    string_calculator(your_string_here)
     ```
  Note: Please refer main branch for final builds. All other branches should be used for improvement purposes only.
