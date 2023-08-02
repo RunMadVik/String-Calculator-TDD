@@ -52,6 +52,9 @@ class TestStringCalculator(unittest.TestCase):
             f"Negative numbers not allowed. {negative_numbers}",
         )
 
+    def test_number_string_calculator_with_numbers_greater_than_1000(self):
+        self.assertEqual(string_calculator(number_string="1,2,1001,1005"), 3)
+
 
 if __name__ == "__main__":
     unittest.main()
