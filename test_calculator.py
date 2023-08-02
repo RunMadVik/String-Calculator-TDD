@@ -20,6 +20,9 @@ class TestStringCalculator(unittest.TestCase):
     def test_two_number_string(self):
         self.assertEqual(string_calculator(number_string="1,2"), 3)
 
+    def test_multiple_number_string(self):
+        self.assertEqual(string_calculator(number_string="1,2,3,4,5,6,7,8,9,10"), 55)
+
 
 if __name__ == "__main__":
     unittest.main()
