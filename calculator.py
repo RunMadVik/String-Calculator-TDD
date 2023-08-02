@@ -20,6 +20,12 @@ def string_calculator(number_string: str) -> int:
     for delim in extra_delimiters:
         number_string = number_string.replace(delim, DEFAULT_DELIMITER)
     try:
-        return sum(map(lambda x: int(x), number_string.split(",")))
+        numbers_list = list(map(lambda x: int(x), number_string.split(",")))
     except ValueError:
         raise Exception("Invalid number string")
+
+    negative_numbers = [number for number in numbers_list if number < 0]
+    if negative_numbers:
+        raise Exception(f"Negative numbers not allowed. {negative_numbers}")
+
+    return sum(numbers_list)
